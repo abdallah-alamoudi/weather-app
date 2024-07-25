@@ -7,6 +7,7 @@ const hbs = require('hbs');
 
 const getWeatherData = require('./utils/getWeatherData');
 const app = express();
+const port = process.env.PORT;
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '../template/views'));
@@ -33,6 +34,6 @@ app.get('/about', async (req, res) => {
 app.get('/help', async (req, res) => {
   res.render('help');
 });
-app.listen(3000, () => {
-  console.log('server is up on port 3000');
+app.listen(port, () => {
+  console.log(`server is up on port ${port}`);
 });
